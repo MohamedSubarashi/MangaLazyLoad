@@ -1,0 +1,43 @@
+{
+  "manifest_version": 2,
+  "name": "Manga Lazy Load",
+  "description": "Toggle lazy load images for Manga Websites like Bato, MangaPark, NatoManga, etc. to improve performance and reduce data usage.",
+  "homepage_url": "https://github.com/MohamedSubarashi/MangaLazyLoad",
+  "version": "1.0",
+  "icons": {
+    "32": "/Icons/32.png",
+    "48": "/Icons/48.png",
+    "64": "/Icons/64.png",
+    "128": "/Icons/128.png"
+  },
+  "applications": {
+    "gecko": {
+        "strict_min_version": "64.0a2"
+    }
+  },
+    "permissions": [
+        "tabs",
+        "storage",
+        "activeTab"
+    ],
+    "content_scripts": [
+  {
+    "matches": [
+      "*://*.bato.to/*",
+      "*://*.mangapark.net/*",
+      "*://*.natomanga.com/*"
+    ],
+    "js": ["background.js"],
+    "run_at": "document_end"
+  }
+],
+    "browser_action": {
+        "default_icon": {
+            "32": "/Icons/32.png",
+            "48": "/Icons/48.png",
+            "64": "/Icons/64.png",
+            "128": "/Icons/128.png"
+        },
+        "default_title": "Manga Lazy Load"
+    }
+}
